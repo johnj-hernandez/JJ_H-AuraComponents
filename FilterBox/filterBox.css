@@ -1,0 +1,46 @@
+.THIS {
+}
+
+
+
+.THIS .filterBoxForm{
+    position: relative;
+    transition: all 0.3s;
+    width: 250px;
+    height: 40px;
+    background: transparent;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 1px solid white;
+    
+    padding: 5px;
+}
+
+.THIS .filterInput{
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;   
+    transition: all 0.3s;
+
+}
+
+
+
+.THIS .filterBoxForm:hover{
+    cursor: pointer;
+}
+
+
+.THIS .filterInput:focus{
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
