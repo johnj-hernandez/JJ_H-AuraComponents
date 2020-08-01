@@ -12,24 +12,20 @@
             var currentInput = event.target.value.toLowerCase();
             var fieldsToSearch = component.get("v.fieldsToSearch");
             listToFilter= fullList.filter((x)=>{
+                var match=false;
                 if(currentInput == '')return true;     
                 
                 if(fieldsToSearch.length > 0){
                     for(var i=0;i<fieldsToSearch.length;i++){
                     if(x[fieldsToSearch[i]]){
-                    		return String(x[fieldsToSearch[i]]).toLowerCase().includes(currentInput);
+                    		if(String(x[fieldsToSearch[i]]).toLowerCase().includes(currentInput))match=true;
                 		}
                      }
+                  
                 }
-            return false; 
+            return match;
         });
         component.set("v.listToFilter",listToFilter)
-        
-        console.log(event.target.value)
-        console.log("on change")
-        console.log("listTofilter",component.get("v.listToFilter"));
-        console.log("fullList",component.get("v.fullList"));
-        console.log("FIELDS TO SEARCH",fieldsToSearch)
     }catch(e){console.log(e)}
  
  },    
