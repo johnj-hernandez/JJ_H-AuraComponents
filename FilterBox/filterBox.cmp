@@ -4,9 +4,10 @@
     <aura:attribute name="listToFilter" type="List"  default="[]"/>
     <aura:attribute name="fullList" type="List"  default="[]" access="private"/>
     <aura:attribute name="fullListCompletion" type="Boolean"  default="false" access="private"/>
+    <aura:attribute name="placeHolder" type="String"  default="Filter templates..."/>
 	<div>
     <form action="" class="filterBoxForm">
-        <input type="search" placeholder="Filter templates..." class="filterInput" value="{!v.searchWord}" onkeyup="{!c.onSearchWordChange}"/>
+        <input type="search" placeholder="{!v.placeHolder}" class="filterInput" value="{!v.searchWord}" onkeyup="{!c.onSearchWordChange}"/>
      </form>
     </div>
 </aura:component>
