@@ -1,7 +1,7 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
     <!--declare attributes-->
     <aura:attribute name="selectedRecord" type="Object" default="{}" description="Use,for store SELECTED sObject Record" />
-    <aura:attribute name="selectedValue" type="Object" default="" description="Use,for store the value" />
+    <aura:attribute name="selectedValue" type="String" default="" description="Use,for store the value" />
     <aura:attribute name="listOfSearchRecords" type="List" description="Use,for store the list of search records which returns from apex class" />
 
     <aura:attribute name="fullList" type="List" description="Use,all posible values" default="[]" />
@@ -22,11 +22,9 @@
     <!--Required-->
     <aura:attribute name="Message" type="String" default="" />
 
-    <!--declare events hendlers-->
+    <!--declare events handlers-->
     <aura:handler name="oSelectedObjectEvent" event="c:searcheablePicklistSelectedEvent" action="{!c.handleComponentEvent}" />
 
-
-    <!-- https://www.lightningdesignsystem.com/components/lookups/ -->
 
     <div onmouseleave="{!c.onblur}" aura:id="searchRes" class="slds-form-element slds-lookup slds-is-close" data-select="single">
         <aura:if isTrue="{! v.required }">
@@ -46,12 +44,16 @@
                 <!-- This markup is for when an record is selected (FINISHED)-->
                 <div aura:id="lookup-pill" class="slds-pill-container slds-hide">
                     <lightning:pill class="pillSize" label="{!v.selectedRecord.label}" name="{!v.selectedRecord.label}" onremove="{! c.clear }">
-                        <aura:set attribute="media">
-                            <aura:if isTrue="{!v.showIcon}">
-                                <lightning:icon iconName="{!v.IconName}" size="x-small" alternativeText="{!v.IconName}" />
-                            </aura:if>
+                        <aura:if isTrue="{!v.showIcon}">
+                            <lightning:icon iconName="{!v.IconName}" size="x-small" alternativeText="{!v.IconName}" />
+                            <!--
+<aura:set attribute="media">
+                               
+                            </aura:set>
 
-                        </aura:set>
+                            -->
+
+                        </aura:if>
                     </lightning:pill>
                 </div>
                 <div aura:id="lookupField" class="slds-show">
