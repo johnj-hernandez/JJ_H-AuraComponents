@@ -17,9 +17,6 @@
   keyPressController: function (component, event, helper) {
     // get the search Input keyword   
     var getInputkeyWord = component.get("v.SearchKeyWord");
-    // check if getInputKeyWord size id more then 0 then open the lookup result List and 
-    // call the helper 
-    // else close the lookup result List part.   
     if (getInputkeyWord.length > 0) {
       var forOpen = component.find("searchRes");
       $A.util.addClass(forOpen, 'slds-is-open');
@@ -35,7 +32,8 @@
   },
 
   // function for clear the Record Selaction 
-  clear: function (component, event, heplper) {
+  clear: function (component, event, helper) {
+
     var pillTarget = component.find("lookup-pill");
     var lookUpTarget = component.find("lookupField");
 
